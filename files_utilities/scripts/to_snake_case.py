@@ -26,8 +26,8 @@ def main() -> None:
 
     # Note: we won't rename upper case files
     rename_many(files, path, lambda file_name: (
-        to_snake_case(
-            file_name), file_name != file_name.upper()
+        to_snake_case(file_name),
+        "".join(file_name.strip().split(" ")) != file_name.upper()
     ))
 
 

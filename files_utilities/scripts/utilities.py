@@ -22,7 +22,13 @@ def split_camel_case(string: str) -> str:
 
 
 def to_snake_case(string: str) -> str:
+    _string = string.strip()
+    if _string == '':
+        return "_"
+    # the following condition is to avoid renaming files with upper case
+    if "".join(_string.split(" ")) == string.upper():
+        return string.lower()
     _string = split_camel_case(string)
     _string = clean_up_string(_string).lower()
-    _string = separate_words_and_numbers(_string)
+    # _string = separate_words_and_numbers(_string)
     return '_'.join(_string.split())
