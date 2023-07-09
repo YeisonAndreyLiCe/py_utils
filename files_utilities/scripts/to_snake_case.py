@@ -1,4 +1,4 @@
-# script to rename into snake_case files in a folder, the objective
+# script to rename into snake_case archives in a folder, the objective
 # e.g. file name 'John Dóè CourseFrom 2018-01-01 to 2018-01-31.pdf'
 # should be rename to john_dóè_course_2018_01_31.pdf
 # the scrip should receive the folder path as an argument
@@ -24,9 +24,10 @@ def main() -> None:
     path = args.path
     files = ls(path)
 
-    # Note: we won't rename the README.md file
+    # Note: we won't rename upper case files
     rename_many(files, path, lambda file_name: (
-        to_snake_case(file_name), file_name != "README"
+        to_snake_case(
+            file_name), file_name != file_name.upper()
     ))
 
 
