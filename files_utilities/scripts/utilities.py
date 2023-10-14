@@ -23,6 +23,9 @@ def split_camel_case(string: str) -> str:
 
 def to_snake_case(string: str) -> str:
     _string = string.strip()
+    # don't rename hidden files
+    if _string.startswith('.'):
+        return string
     if _string == '':
         return "_"
     # the following condition is to avoid renaming files with upper case
